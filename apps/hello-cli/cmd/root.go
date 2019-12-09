@@ -65,6 +65,9 @@ func init() {
 }
 
 // initConfig reads in config file and ENV variables if set.
+
+// see: https://github.com/spf13/viper
+
 func initConfig() {
 	if cfgFile != "" {
 		// Use config file from the flag.
