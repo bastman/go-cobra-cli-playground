@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/spf13/newApp/cmd"
+import "newApp/cmd"
 
 func main() {
 	cmd.Execute()
