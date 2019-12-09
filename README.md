@@ -16,10 +16,11 @@ how to create cli apps (golang, cobra)
     
 ## example
 ```
-$ cobra init --pkg-name github.com/spf13/newApp newApp && cd newApp
-$ cobra add serve
-$ go install
-$ go build
+# create a new app "example-001"
+$ make cobra.app.create COBRA_APP=example-001
+
+# add command "hello" to app "example-001"
+$ make cobra.command.create COBRA_APP=example-001 COBRA_COMMAND="hello"
 
 ```
     
