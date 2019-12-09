@@ -17,13 +17,13 @@ package cmd
 
 import (
 	"fmt"
-
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 // sayhelloCmd represents the sayhello command
 var sayhelloCmd = &cobra.Command{
-	Use:   "sayhello",
+	Use:   "hello",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -32,12 +32,27 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Hello World!")
+		greeting := "Hello"
+		name, _ := cmd.Flags().GetString("name")
+		if name == "" {
+			name = "World"
+		}
+		if viper.GetString("name") != "" {
+			name = viper.GetString("name")
+		}
+		if viper.GetString("greeting") != "" {
+			greeting = viper.GetString("greeting")
+		}
+		fmt.Println(greeting + " " + name)
 	},
 }
 
 func init() {
 	//rootCmd.AddCommand(sayhelloCmd)
+	sayCmd.AddCommand(sayhelloCmd)
+	//sayhelloCmd.Flags().StringP("name", "n", "", "Set your name")
+	sayhelloCmd.Flags().StringP("name", "n", viper.GetString("NAME"), "Set your name")
+	//sayhelloCmd.Flags().StringP("name", "n", viper.GetString("NAME") , "Set your name")
 
 	// Here you will define your flags and configuration settings.
 
