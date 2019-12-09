@@ -28,3 +28,6 @@ $ brew install go
 $ go version
 $ go get golang.org/x/tools/cmd/godoc
 ```
+
+# go modules / vendoring
+- https://github.com/golang/go/wiki/Modules#how-do-i-use-vendoring-with-modules-is-vendoring-going-away
