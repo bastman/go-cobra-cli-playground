@@ -14,10 +14,10 @@ how to create cli apps (golang, cobra)
 - cobra generator:
     - https://github.com/spf13/cobra/blob/master/cobra/README.md 
     Note: does not support go modules yet!   
-    
-- tutorials
-    - https://ordina-jworks.github.io/development/2018/10/20/make-your-own-cli-with-golang-and-cobra.html
-    - https://github.com/nickgeudens/hello-cli
+
+## learn cobra + viper    
+
+- [docs/LearnCobra.md](docs/LearnCobra.md)
       
     
 ## example
