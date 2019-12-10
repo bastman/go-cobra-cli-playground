@@ -5,5 +5,17 @@
     - https://github.com/nickgeudens/hello-cli
 
 ```
-$ ./app say hello --config ./config.yml
+$ cd <this-folder>
+
+# compile 
+$ go build
+
+# run
+$ ./app --help
+
+$ ./app say --help
+
+$ ./app say hello --help
+$ ./app say hello --name=Homer              # result: Hello Homer
+$ ./app say hello --config ./config.yml     # result: Howdy Billy
 ```
