@@ -1,5 +1,5 @@
 APPS_FOLDER=apps
-APP_TEMPLATES_FOLDER=setup-cobra
+APP_TEMPLATES_FOLDER=create-app/templates
 
 # help / usage
 print-%: ; @echo $*=$($*)
