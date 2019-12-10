@@ -33,13 +33,19 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	// addCmd
 	Run: func(cmd *cobra.Command, args []string) {
-		addInt(args)
+		// get the flag value, its default value is false
+		fstatus, _ := cmd.Flags().GetBool("float")
+		if fstatus { // if status is true, call addFloat
+			addFloat(args)
+		} else {
+			addInt(args)
+		}
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(addCmd)
-
+	addCmd.Flags().BoolP("float", "f", false, "Add Floating Numbers")
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
@@ -67,4 +73,17 @@ func addInt(args []string) {
 		sum = sum + itemp
 	}
 	fmt.Printf("Addition of numbers %s is %d", args, sum)
+}
+
+func addFloat(args []string) {
+	var sum float64
+	for _, fval := range args {
+		// convert string to float64
+		ftemp, err := strconv.ParseFloat(fval, 64)
+		if err != nil {
+			fmt.Println(err)
+		}
+		sum = sum + ftemp
+	}
+	fmt.Printf("Sum of floating numbers %s is %f", args, sum)
 }

@@ -10,4 +10,8 @@ $ go build
 
 # run
 $ ./app --help
+$ ./app add 1 2 3           # result: 6
+$ ./app add 1.2 2.5         # result: 3 (args treated as int types)
+$ ./app add 1.2 2.5 --float # result: 3.7
+
 ```
