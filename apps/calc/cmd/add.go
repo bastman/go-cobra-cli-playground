@@ -17,8 +17,8 @@ package cmd
 
 import (
 	"fmt"
-
 	"github.com/spf13/cobra"
+	"strconv"
 )
 
 // addCmd represents the add command
@@ -31,8 +31,9 @@ and usage of using your command. For example:
 Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
+	// addCmd
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("add called")
+		addInt(args)
 	},
 }
 
@@ -48,4 +49,22 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// addCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func addInt(args []string) {
+	var sum int
+	// iterate over the arguments
+	// the first return value is index of args, we can omit it using _
+
+	for _, ival := range args {
+		// strconv is the library used for type conversion. for string
+		// to int conversion Atio method is used.
+		itemp, err := strconv.Atoi(ival)
+
+		if err != nil {
+			fmt.Println(err)
+		}
+		sum = sum + itemp
+	}
+	fmt.Printf("Addition of numbers %s is %d", args, sum)
 }
