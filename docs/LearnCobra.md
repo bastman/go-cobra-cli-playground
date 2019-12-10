@@ -15,6 +15,10 @@
 
 ## basic concepts
 
+```
+e.g.: kubectl describe deployment <DEPLOYMENT_NAME> -o yaml
+```
+
 $ RootCommand Command SubCommand Args --Flags
 
     ("RootCommand" aka "AppName")
@@ -26,6 +30,11 @@ $ AppName Command Args --Flags
 $ AppName Command SubCommand Args --Flags 
 
     ("Flags" aka "named parameters/options")
+    
+In short ...
+- Commands represent actions
+- Args are things
+- Flags are modifiers for those actions
     
 ````
 e.g.: 

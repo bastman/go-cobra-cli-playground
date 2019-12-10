@@ -1,5 +1,12 @@
 # go-cobra-cli-playground
-how to create cli apps (golang, cobra)
+how to create cli apps (golang: cobra + viper) ?
+
+how to create something like ... ?
+```
+e.g.: $ kubectl describe deployment <DEPLOYMENT_NAME> -o yaml
+```
+
+
 
 ## install golang (osx)
 
@@ -11,8 +18,9 @@ how to create cli apps (golang, cobra)
     - https://github.com/spf13/cobra
     - https://github.com/spf13/viper
     
-- cobra generator:
+- cobra app generator:
     - https://github.com/spf13/cobra/blob/master/cobra/README.md 
+    
     Note: does not support go modules yet!   
 
 ## learn cobra + viper    
