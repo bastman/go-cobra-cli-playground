@@ -1,4 +1,5 @@
 APPS_FOLDER=apps
+APP_TEMPLATES_FOLDER=setup-cobra
 
 # help / usage
 print-%: ; @echo $*=$($*)
@@ -26,7 +27,8 @@ cobra.app.build: guard-COBRA_APP cobra.apps
 ## cobra.app.create:   : create a new cobra app ( e.g.: make cobra.app.create COBRA_APP=example-001 )
 cobra.app.create: guard-COBRA_APP cobra.apps
 	cobra init --pkg-name app $(APPS_FOLDER)/$(COBRA_APP)
-	cp setup-cobra/go.mod $(APPS_FOLDER)/$(COBRA_APP)
+	cp $(APP_TEMPLATES_FOLDER)/go.mod $(APPS_FOLDER)/$(COBRA_APP)
+	cp $(APP_TEMPLATES_FOLDER)/README.md $(APPS_FOLDER)/$(COBRA_APP)
 	cd $(APPS_FOLDER)/$(COBRA_APP) && ls -la && go build
 	make cobra.app.build COBRA_APP=$(COBRA_APP)
 	cd $(APPS_FOLDER)/$(COBRA_APP) && ./app --help
