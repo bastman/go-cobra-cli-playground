@@ -15,10 +15,18 @@
 
 ## basic concepts
 
+$ RootCommand Command SubCommand Args --Flags
 
-APPNAME Command Args --Flags 
+    ("RootCommand" aka "AppName")
 
-APPNAME Command SubCommand Args --Flags 
+$ AppName Command Args --Flags 
+    
+    ("Args" aka "positional arguments")
+
+$ AppName Command SubCommand Args --Flags 
+
+    ("Flags" aka "named parameters/options")
+    
 ````
 e.g.: 
 $ ./app say hello --name=Homer
