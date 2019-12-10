@@ -6,10 +6,15 @@ see: https://github.com/chrislusf/glow
 
 ## alternatives:
 
+- https://medium.com/wesovilabs/koazee-vs-go-funk-vs-go-linq-caf8ef18584e
+
 - go-funk:
     - https://github.com/thoas/go-funk
     - https://medium.com/swlh/go-funk-utility-functions-in-your-go-code-6b3654b10552
-    
+
+- Koazee: https://github.com/wesovilabs/koazee
+- Go-Linq: https://github.com/ahmetb/go-linq
+   
 
 ## Basic examples:
 
