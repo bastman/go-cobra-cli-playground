@@ -6,22 +6,24 @@ how to create something like ... ?
 e.g.: $ kubectl describe deployment <DEPLOYMENT_NAME> -o yaml
 ```
 
-
-
 ## install golang (osx)
 
 - [docs/InstallGo.md](docs/InstallGo.md)
 
-## build cli-apps in go
+## build cli-apps in go (cobra + viper)
 
-- cobra + viper:
-    - https://github.com/spf13/cobra
-    - https://github.com/spf13/viper
+- cobra: https://github.com/spf13/cobra
+
+    "Cobra is both a library for creating powerful modern CLI applications as well as a program to generate applications and command files."
     
-- cobra app generator:
-    - https://github.com/spf13/cobra/blob/master/cobra/README.md 
+- cobra app generator: https://github.com/spf13/cobra/blob/master/cobra/README.md 
+    - Note: does not support go modules out of the box yet!  
     
-    Note: does not support go modules yet!   
+- viper: https://github.com/spf13/viper
+
+    "The viper library is famous for configuration solution for go application. It reads from JSON, TOML, YAML, HCL, envfile and Java properties config files."
+ 
+see: https://towardsdatascience.com/how-to-create-a-cli-in-golang-with-cobra-d729641c7177
 
 ## learn cobra + viper    
 
