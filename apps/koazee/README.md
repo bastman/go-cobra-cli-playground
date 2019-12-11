@@ -13,6 +13,9 @@ Visit the Koazee wiki to find out what Koazee can do."
 
 WARN: Does not yet work properly with go mod. see: https://github.com/wesovilabs/koazee/issues/54
 
+## in action:
+
+go-funk + koazee: https://github.com/nabinno/dojo/blob/master/project_euler/problem_4.go
 
 ## alternatives:
 
