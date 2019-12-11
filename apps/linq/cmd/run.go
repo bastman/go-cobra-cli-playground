@@ -16,6 +16,7 @@ limitations under the License.
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
 	. "github.com/ahmetb/go-linq"
 	"github.com/spf13/cobra"
@@ -84,5 +85,8 @@ func runPipeline() {
 		ToSlice(&results)
 
 	fmt.Println("results: " + strings.Join(results[:], ","))
+
+	json, _ := json.Marshal(results)
+	fmt.Println("results (json): " + string(json))
 
 }
