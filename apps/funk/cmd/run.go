@@ -68,21 +68,11 @@ func runPipeline() {
 	fmt.Println("source (json): " + toJson(source))
 	fmt.Println("results: r1 (json): " + toJson(r1))
 	fmt.Println("results: r2 (json): " + toJson(r2))
+
 }
 
 func toJson(v interface{}) string {
 	json, _ := json.Marshal(v)
 	out := string(json)
 	return out
-}
-
-type Foo struct {
-	ID        int
-	FirstName string `tag_name:"tag 1"`
-	LastName  string `tag_name:"tag 2"`
-	Age       int    `tag_name:"tag 3"`
-}
-
-func (f Foo) TableName() string {
-	return "foo"
 }
