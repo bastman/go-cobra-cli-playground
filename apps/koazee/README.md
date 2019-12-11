@@ -24,7 +24,7 @@ go-funk + koazee: https://github.com/nabinno/dojo/blob/master/project_euler/prob
 - go-funk: https://github.com/thoas/go-funk
 - Koazee: https://github.com/wesovilabs/koazee
 - Go-Linq: https://github.com/ahmetb/go-linq
-   
+- glow: https://github.com/chrislusf/glow   
 
 ## Basic examples:
 
