@@ -57,13 +57,17 @@ func runPipeline() {
 	fmt.Println("runPipeline")
 	var source = []int{1, 2, 3, 4}
 
-	r := funk.Map(source, func(x int) int {
-		return x * 2
+	r1 := funk.Map(source, func(it int) int {
+		return it * 2
 	}) // []int{2, 4, 6, 8}
 
-	fmt.Println("source (json): " + toJson(source))
-	fmt.Println("results (json): " + toJson(r))
+	r2 := funk.Filter(r1, func(it int) bool {
+		return it > 2
+	})
 
+	fmt.Println("source (json): " + toJson(source))
+	fmt.Println("results: r1 (json): " + toJson(r1))
+	fmt.Println("results: r2 (json): " + toJson(r2))
 }
 
 func toJson(v interface{}) string {
