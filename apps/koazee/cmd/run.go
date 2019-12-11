@@ -17,8 +17,10 @@ package cmd
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/spf13/cobra"
+	"github.com/wesovilabs/koazee"
 )
 
 // runCmd represents the run command
@@ -33,6 +35,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("run called")
+		runPipeline()
 	},
 }
 
@@ -48,4 +51,18 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// runCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func runPipeline() {
+	fmt.Println("runPipeline")
+	var animals = []string{"lynx", "dog", "cat", "monkey", "fox", "tiger", "lion"}
+	fmt.Print("input: ")
+	fmt.Println(animals)
+	stream := koazee.StreamOf(animals)
+
+	fmt.Print("stream.Reverse(): ")
+	fmt.Println(stream.Reverse().Out().Val())
+
+	fmt.Print("stream.Sort(strings.Compare): ")
+	fmt.Println(stream.Sort(strings.Compare).Out().Val())
 }

@@ -11,6 +11,9 @@ note: koazee provides kind of lazy evaluated stream (see Java Streams Api, Kotli
 "Koazee is a StreamLike, Immutable, Lazy Loading and smart Golang Library to deal with slices.
 Visit the Koazee wiki to find out what Koazee can do."
 
+WARN: Does not yet work properly with go mod. see: https://github.com/wesovilabs/koazee/issues/54
+
+
 ## alternatives:
 
 - https://medium.com/wesovilabs/koazee-vs-go-funk-vs-go-linq-caf8ef18584e
