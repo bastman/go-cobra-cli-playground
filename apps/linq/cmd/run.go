@@ -56,8 +56,7 @@ func init() {
 func runPipeline() {
 	fmt.Println("runPipeline called")
 	var results []string
-	var sentences []string = make([]string, 3)
-	sentences = append(sentences, "The fox jumps. over the fence.")
+	var sentences = []string{"The fox jumps.", "over the fence."}
 
 	From(sentences).
 		// split sentences to words
