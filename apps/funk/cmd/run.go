@@ -16,9 +16,11 @@ limitations under the License.
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/spf13/cobra"
+	"github.com/thoas/go-funk"
 )
 
 // runCmd represents the run command
@@ -33,6 +35,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("run called")
+		runPipeline()
 	},
 }
 
@@ -48,4 +51,34 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// runCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func runPipeline() {
+	fmt.Println("runPipeline")
+	var source = []int{1, 2, 3, 4}
+
+	r := funk.Map(source, func(x int) int {
+		return x * 2
+	}) // []int{2, 4, 6, 8}
+
+	fmt.Println("source (json): " + toJson(source))
+	fmt.Println("results (json): " + toJson(r))
+
+}
+
+func toJson(v interface{}) string {
+	json, _ := json.Marshal(v)
+	out := string(json)
+	return out
+}
+
+type Foo struct {
+	ID        int
+	FirstName string `tag_name:"tag 1"`
+	LastName  string `tag_name:"tag 2"`
+	Age       int    `tag_name:"tag 3"`
+}
+
+func (f Foo) TableName() string {
+	return "foo"
 }
