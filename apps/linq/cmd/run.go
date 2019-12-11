@@ -59,7 +59,7 @@ func runPipeline() {
 	var sentences = []string{"The fox jumps.", "over the fence."}
 
 	From(sentences).
-		// split sentences to words
+		// flatMap: split sentences to words
 		SelectManyT(func(sentence string) Query {
 			return From(strings.Split(sentence, " "))
 		}).
@@ -85,7 +85,12 @@ func runPipeline() {
 
 	fmt.Println("results: " + strings.Join(results[:], ","))
 
-	json, _ := json.Marshal(results)
-	fmt.Println("results (json): " + string(json))
+	fmt.Println("results (json): " + toJson(results))
 
+}
+
+func toJson(v interface{}) string {
+	json, _ := json.Marshal(v)
+	out := string(json)
+	return out
 }
