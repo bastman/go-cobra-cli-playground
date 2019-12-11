@@ -17,8 +17,9 @@ package cmd
 
 import (
 	"fmt"
-
+	. "github.com/ahmetb/go-linq"
 	"github.com/spf13/cobra"
+	"strings"
 )
 
 // runCmd represents the run command
@@ -33,6 +34,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("run called")
+		runPipeline()
 	},
 }
 
@@ -48,4 +50,39 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// runCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func runPipeline() {
+	fmt.Println("runPipeline called")
+	var results []string
+	var sentences []string = make([]string, 3)
+	sentences = append(sentences, "The fox jumps. over the fence.")
+
+	From(sentences).
+		// split sentences to words
+		SelectManyT(func(sentence string) Query {
+			return From(strings.Split(sentence, " "))
+		}).
+		// group the words
+		GroupByT(
+			func(word string) string { return word },
+			func(word string) string { return word },
+		).
+		// order by count
+		OrderByDescendingT(func(wordGroup Group) int {
+			return len(wordGroup.Group)
+		}).
+		// order by the word
+		ThenByT(func(wordGroup Group) string {
+			return wordGroup.Key.(string)
+		}).
+		Take(5). // take the top 5
+		// project the words using the index as rank
+		SelectIndexedT(func(index int, wordGroup Group) string {
+			return fmt.Sprintf("Rank: #%d, Word: %s, Counts: %d", index+1, wordGroup.Key, len(wordGroup.Group))
+		}).
+		ToSlice(&results)
+
+	fmt.Println("results: " + strings.Join(results[:], ","))
+
 }
